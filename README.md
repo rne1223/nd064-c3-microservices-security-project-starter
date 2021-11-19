@@ -16,4 +16,5 @@ No stress, you have tools and security incident response knowledge to respond ;)
 
 ### Project Instructions
 
+[rubric](https://review.udacity.com/#!/rubrics/3092/view)
 Follow the steps/instructions in the Udacity classroom to complete and submit the project.
