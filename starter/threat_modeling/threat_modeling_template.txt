@@ -5,12 +5,15 @@ Given Docker's system components and the STRIDE framework, identify five potenti
     - Communications between the **docker client** and **deamon** could be **spoof** if the hacker gets control of either system.
     - A **docker deamon's configuration** could be tampered by a hacked **docker client**.
     - A **docker deamon's priviledge** could be escalated if it defaults to using root, which could give access to the hacker to other containers in the system
-    - If hacker could access the **docker regestry**, infected images could be uploaded without the author's and users knowledge. The hacker could **repudiate** his
-    actions because he would have access to the regestry. 
 
 
 Kubernetes Threat Modeling
 Given Kubernetes' system components and the STRIDE framework, identify five potential threats that may arise.
+    - If a hacker gets access to **Kubernetes's control plane**, all calls to the api server could be **spoof**.
+    - A hacker could **disclose** sensitve information from the **etcd**.
+    - An **elevation of privilege** can happen if the **kube-apiserver** is hacked.
+    - A **worker node** could be **tampered** if the kube configuration does not have the right user permissions.
+    - A **worker node** could also overwelm the system with a **denial of service** attack by a hacker. 
 
 Docker-bench Run Results and Analysis
 From the failed findings, select and document 3 findings from the Docker-bench results that you want to harden based on the 5 attack surface areas you identified in Step 1. 
