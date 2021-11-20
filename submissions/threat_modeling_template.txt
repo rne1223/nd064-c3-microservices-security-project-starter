@@ -4,8 +4,9 @@ Given Docker's system components and the STRIDE framework, identify five potenti
     without the authors knowledge. 
     - Communications between the **docker client** and **deamon** could be **spoof** if the hacker gets control of either system.
     - A **docker deamon's configuration** could be tampered by a hacked **docker client**.
-    - A **docker deamon's priviledge** could be escalated if it defaults to using root, which could give access to the hacker to other containers in the system
-
+    - A **docker deamon's priviledge could be escalated** if it defaults to using root, which could give access to the hacker to other containers in the system
+    - If hacker could access the **docker registry**, infected images could be uploaded without the author's and users knowledge. The hacker could **repudiate** his
+    actions because he would have access to the registry. 
 
 Kubernetes Threat Modeling
 Given Kubernetes' system components and the STRIDE framework, identify five potential threats that may arise.
@@ -18,3 +19,7 @@ Given Kubernetes' system components and the STRIDE framework, identify five pote
 Docker-bench Run Results and Analysis
 From the failed findings, select and document 3 findings from the Docker-bench results that you want to harden based on the 5 attack surface areas you identified in Step 1. 
 At least 1 of the 3 hardened findings should be different from the ones mentioned in the exercise (i.e. 5.10, 5.14, and 5.22).
+
+    - 4.5 Ensure Content trust for Docker is Enabled 
+    - 3.17 Ensure that daemon.json file ownership is set to root:root
+    - 2.17.b Ensure containers are restricted from acquiring new privileges
