@@ -16,5 +16,6 @@ No stress, you have tools and security incident response knowledge to respond ;)
 
 ### Project Instructions
 
+[Instructions](https://classroom.udacity.com/nanodegrees/nd064/parts/80fda9c8-bf3d-45dd-922b-b96e92f39f9a/modules/279eefb7-3224-485c-a9e3-fb95a4eb1bad/lessons/6ce634d5-653a-44eb-9dd5-c7834098d955/concepts/c33dcf38-fcdc-421c-8108-aa61e35cb49e)
 [rubric](https://review.udacity.com/#!/rubrics/3092/view)
 Follow the steps/instructions in the Udacity classroom to complete and submit the project.
