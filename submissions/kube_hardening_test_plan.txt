@@ -1,7 +1,11 @@
-How will you test the changes? The change will be tested in a non-production environment such as a test cluster.
-What is the environment? The environment is a non-production cluster.
-How will you ensure the changes don't negatively affect your cluster? The change should be tested in a non-production cluster. Once the change is applied, you should monitor metrics using your observability and monitoring techniques like Prometheus and Grafana.
-Can the change be canary tested with some traffic directed to simulate load on the system? In our classroom demo, it's not possible to simulate directing traffic easily to a non-production cluster. In the real world, you can really direct some traffic to a test environment via load balancer configuration or if you are running a service mesh (go to this Wikipedia page to learn more), you can do so via the mesh-like Istio or Envoy. There are also microservices-minded proxies like Traefik that provide ways to load balance Microservices.
-Does the environment mimic production? If not how can we mimic production? Our environment mimics production as it's a verbatim configuration.
-Can the change be rolled out incrementally to a percentage of traffic? In the real world, cluster-bound incoming traffic is often split at the load balancer or if you are running a service mesh, you can do so via the mesh-like Istio or Envoy. As the cluster needs to be restarted, the change will take time to roll back.
-Can the change be safely rolled back? Editing the cluster.yaml should be version-controlled with Git so the change can be rolled back. However, as a reboot is required, it's not trivial to do quickly. Hence you should be very careful with testing the change.
+Kubernetes is a large system with many moving parts. One could easily disrupt the production setup with a simple change. 
+Therefore, there needs to be a goal to achieve and a plan to execute for disruptions to be minimal. Let’s say that my goal 
+is to harden the kube-apiserver with no disruptions to production and being able to handle the same traffic load as before. 
+For this goal to take place, I would create a non-production environment to test and harden the cluster. This non-production 
+environment could handle the same traffic loads as production, but only synthesized traffic can be used while changes are being applied. 
+I would choose Prometheus and Grafana to monitor and display the metrics of the non-production environment while the changes are taking place. 
+This way I could see if the new configurations are relevant and making a positive impact on the cluster. Once enough positive changes have been 
+made and the goal is achieved, then it is time to test some non-synthesized traffic on the non-production cluster. It is better to test a 
+small sample on the new environment than make the switch and find out that nothing works when there is real traffic. If everything goes according 
+to plan with the small sample and the goal is achieved then the non-production environment becomes the production environment. Otherwise I go 
+back to the drawing board to make the changes that are needed to achieve the goal. Rinse and repeat until the goal is met or the goal is changed. 
